@@ -1,5 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#506051</color>
+    <color name="secondary">#74A177</color>
+    <color name="accent">#B6748D</color>
+    <color name="background">#FAFAFA</color>
+    <color name="text_primary">#16161D</color>
+    <color name="text_secondary">#9916161D</color>
+    <color name="text_placeholder">#5916161D</color>
+    <color name="divider">#1416161D</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_tint">#F2F4F0</color>
+    <color name="error">#B3261E</color>
+    <!-- Button states -->
+    <color name="btn_hover">#3F4C40</color>
+    <color name="btn_pressed">#2F3A30</color>
 </resources>

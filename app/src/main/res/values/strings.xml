@@ -1,3 +1,51 @@
 <resources>
-    <string name="app_name">MatchaLaab</string>
+    <string name="app_name">Chi Matcha</string>
+    <string name="label_username">Username</string>
+    <string name="hint_username">Enter your username</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="hint_confirm_password">Re-enter your password</string>
+    <string name="hint_quantity">How many?</string>
+    <string name="hint_notes">Easy on the foam, please</string>
+    <string name="btn_sign_in">Sign in</string>
+    <string name="btn_create_account">Create account</string>
+    <string name="btn_place_order">Place order</string>
+    <string name="err_username_empty">Username is required</string>
+    <string name="err_username_length">Username must be longer than 6 characters</string>
+    <string name="err_password_empty">Password is required</string>
+    <string name="err_confirm_empty">Confirm password is required</string>
+    <string name="err_password_mismatch">Passwords do not match</string>
+    <string name="err_qty_required">Quantity must be greater than 0</string>
+    <string name="dialog_order_title">Order received</string>
+    <string name="dialog_order_msg">A confirmation email has been sent to your inbox. We\'ll start brewing shortly.</string>
+    <string name="dialog_qty_title">Quantity required</string>
+    <string name="dialog_qty_msg">Please enter a quantity greater than 0 before placing your order.</string>
+
+    <string name="hint_username_register">Min. 7 characters</string>
+    <string name="hint_password_register">Create a password</string>
+
+    <!-- Login -->
+    <string name="title_login">Welcome back</string>
+    <string name="subtitle_login">Sign in to brew your next moment of calm.</string>
+    <string name="link_forgot_password">Forgot password?</string>
+
+    <!-- Register -->
+    <string name="title_register">Create account</string>
+    <string name="subtitle_register">Three quick fields and you\'re sipping in no time.</string>
+
+
+    <string name="greeting_afternoon">Good afternoon</string>
+    <string name="section_quick_menu">Quick menu</string>
+    <string name="section_todays_pick">Today\'s pick</string>
+    <string name="action_see_all">See all</string>
+    <string name="menu_items">Items</string>
+    <string name="menu_branch">Branch</string>
+    <string name="menu_logout">Log out</string>
+    <string name="product_classic_name">Classic Ceremonial</string>
+    <string name="product_classic_price">$5.50</string>
+    <string name="product_iced_name">Iced Matcha Latte</string>
+    <string name="product_iced_price">$6.00</string>
+    <string name="cd_open_menu">Open menu</string>
+    <string name="cd_notifications">Notifications</string>
+    <string name="cd_previous">Previous</string>
+    <string name="cd_next">Next</string>
 </resources>
