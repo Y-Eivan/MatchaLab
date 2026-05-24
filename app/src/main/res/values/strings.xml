@@ -38,6 +38,7 @@
     <string name="section_todays_pick">Today\'s pick</string>
     <string name="action_see_all">See all</string>
     <string name="menu_items">Items</string>
+    <string name="menu_home">Home</string>
     <string name="menu_branch">Branch</string>
     <string name="menu_logout">Log out</string>
     <string name="product_classic_name">Classic Ceremonial</string>
