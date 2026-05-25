@@ -1,6 +1,7 @@
 package com.example.matchalaab;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
 import android.widget.TextView;
@@ -57,6 +58,11 @@ public class LoginActivity extends AppCompatActivity {
             tilPassword.setError("Required");
             return;
         }
+
+        getSharedPreferences("chi_matcha", MODE_PRIVATE)
+                .edit()
+                .putString("username", user)
+                .apply();
 
         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
         finish();

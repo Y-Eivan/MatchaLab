@@ -13,4 +13,6 @@
     <!-- Button states -->
     <color name="btn_hover">#3F4C40</color>
     <color name="btn_pressed">#2F3A30</color>
+    <!-- Card interaction -->
+    <color name="card_ripple">#1A000000</color>
 </resources>

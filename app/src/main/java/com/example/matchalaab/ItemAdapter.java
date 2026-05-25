@@ -7,14 +7,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 
-    private final List<MatchaItem> itemList;
+    private final List<MatchaItem> itemList = new ArrayList<>();
 
-    public ItemAdapter(List<MatchaItem> itemList) {
-        this.itemList = itemList;
+    public ItemAdapter(List<MatchaItem> initial) {
+        itemList.addAll(initial);
+    }
+
+    public void updateItems(List<MatchaItem> newList) {
+        itemList.clear();
+        itemList.addAll(newList);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -29,17 +36,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         MatchaItem item = itemList.get(position);
         holder.tvName.setText(item.getName());
-        holder.tvPrice.setText("Rp " + item.getPrice());
+        holder.tvDesc.setText(item.getDescription());
+        holder.tvPrice.setText(formatPrice(item.getPrice()));
         holder.imgProduct.setImageResource(item.getImageResId());
 
-        // Tambahkan event klik untuk pindah ke halaman Detail
         holder.itemView.setOnClickListener(v -> {
             android.content.Intent intent = new android.content.Intent(v.getContext(), ItemDetailActivity.class);
-            // Mengirim data ke halaman detail
             intent.putExtra("name", item.getName());
             intent.putExtra("price", item.getPrice());
             intent.putExtra("desc", item.getDescription());
+            intent.putExtra("detailDesc", item.getDetailDescription());
             intent.putExtra("image", item.getImageResId());
+            intent.putExtra("tag", item.getTag());
             v.getContext().startActivity(intent);
         });
     }
@@ -49,15 +57,20 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return itemList.size();
     }
 
+    private String formatPrice(double price) {
+        return String.format("Rp. %,.0f", price).replace(',', '.');
+    }
+
     static class ItemViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName, tvPrice;
         ImageView imgProduct;
+        TextView tvName, tvDesc, tvPrice;
 
         ItemViewHolder(View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvProductName);
-            tvPrice = itemView.findViewById(R.id.tvProductPrice);
             imgProduct = itemView.findViewById(R.id.imgProduct);
+            tvName = itemView.findViewById(R.id.tvProductName);
+            tvDesc = itemView.findViewById(R.id.tvProductDesc);
+            tvPrice = itemView.findViewById(R.id.tvProductPrice);
         }
     }
 }
