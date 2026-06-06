@@ -3,6 +3,7 @@ package com.example.matchalaab;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.WindowInsetsController;
 import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -18,15 +19,21 @@ public class ItemActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ItemAdapter adapter;
-    private final List<MatchaItem> allItems = new ArrayList<>();
+    private final List<MatchaItem> allItems = new ArrayList<>(); //details in MatchaItem.java
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
 
+        //white status bar with dark icons
         getWindow().setStatusBarColor(Color.WHITE);
-        getWindow().getDecorView().setSystemUiVisibility(android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        WindowInsetsController controller = getWindow().getInsetsController();
+        if (controller != null) {
+            controller.setSystemBarsAppearance(
+                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS);
+        }
 
         drawerLayout = findViewById(R.id.drawerLayout);
         drawerLayout.setStatusBarBackgroundColor(Color.WHITE);
@@ -42,11 +49,13 @@ public class ItemActivity extends AppCompatActivity {
 
         NavigationView navView = findViewById(R.id.navView);
 
+        //show username in drawer header
         String username = getSharedPreferences("chi_matcha", MODE_PRIVATE)
                 .getString("username", "Guest");
         android.widget.TextView tvNavUsername = navView.getHeaderView(0).findViewById(R.id.tvNavUsername);
         tvNavUsername.setText(username);
 
+        //drawer navigation — finish() to avoid stacking activities
         navView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
@@ -68,6 +77,7 @@ public class ItemActivity extends AppCompatActivity {
     }
 
     private void setupItems() {
+        //full product catalog
         allItems.add(new MatchaItem(1, "Matcha Latte",
                 "Stone-ground excellence",
                 "Whisked-to-order ceremonial grade matcha paired with perfectly steamed oat milk. Earthy, smooth, and warming in every sip.",
@@ -103,6 +113,7 @@ public class ItemActivity extends AppCompatActivity {
                 "Whole roasted coffee beans coated in ceremonial grade matcha white chocolate. A crunchy, energizing snack.",
                 22000, R.drawable.img_matcha_beans, "Beans", "Snack"));
 
+        //2-column grid layout
         RecyclerView rvItems = findViewById(R.id.rvItems);
         rvItems.setLayoutManager(new GridLayoutManager(this, 2));
         rvItems.setHasFixedSize(false);
@@ -112,6 +123,7 @@ public class ItemActivity extends AppCompatActivity {
     }
 
     private void setupChipFilter() {
+        //filter items by category tag on chip selection
         ChipGroup chipGroup = findViewById(R.id.chipGroup);
         chipGroup.setOnCheckedStateChangeListener((group, checkedIds) -> {
             if (checkedIds.isEmpty()) return;

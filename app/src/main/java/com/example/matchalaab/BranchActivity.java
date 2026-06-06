@@ -3,6 +3,7 @@ package com.example.matchalaab;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.WindowInsetsController;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,9 +24,14 @@ public class BranchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_branch);
 
+        //white status bar with dark icons
         getWindow().setStatusBarColor(Color.WHITE);
-        getWindow().getDecorView().setSystemUiVisibility(
-                android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        WindowInsetsController controller = getWindow().getInsetsController();
+        if (controller != null) {
+            controller.setSystemBarsAppearance(
+                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS);
+        }
 
         drawerLayout = findViewById(R.id.drawerLayout);
         if (drawerLayout != null) drawerLayout.setStatusBarBackgroundColor(Color.WHITE);
@@ -42,11 +48,13 @@ public class BranchActivity extends AppCompatActivity {
 
         NavigationView navView = findViewById(R.id.navView);
         if (navView != null) {
+            //show username in drawer header
             String username = getSharedPreferences("chi_matcha", MODE_PRIVATE)
                     .getString("username", "Guest");
             TextView tvNavUsername = navView.getHeaderView(0).findViewById(R.id.tvNavUsername);
             if (tvNavUsername != null) tvNavUsername.setText(username);
 
+            //drawer navigation
             navView.setNavigationItemSelectedListener(item -> {
                 int id = item.getItemId();
                 if (id == R.id.nav_home) {
@@ -72,27 +80,16 @@ public class BranchActivity extends AppCompatActivity {
         List<BranchItem> branchList = new ArrayList<>();
         branchList.add(new BranchItem(
                 "Chi Matcha Alam Sutera",
-                "Jl. Alam Sutera Blvd No. 8, Tangerang",
-                "Mon-Sun 07:00 - 22:00",
-                "Flagship",
-                -6.2271, 106.6508));
+                "Jl. Sutera No. 25, Tangerang",
+                "07:00 - 22:00"));
         branchList.add(new BranchItem(
-                "Chi Matcha Cigaten",
-                "Jl. Raya Serpong No. 12, Tangerang Selatan",
-                "Mon-Sun 08:00 - 21:00",
-                "New",
-                -6.2650, 106.7100));
+                "Chi Matcha Jakarta Pusat",
+                "Jl. Sudirman No. 10, Jakarta Pusat",
+                "08:00 - 21:00"));
         branchList.add(new BranchItem(
-                "Chi Matcha BSD",
-                "Jl. BSD Raya Utama No. 5, Tangerang Selatan",
-                "Mon-Sun 09:00 - 22:00",
-                "",
-                -6.3015, 106.6533));
-
-        TextView tvHeadline = findViewById(R.id.tvBranchHeadline);
-        if (tvHeadline != null) {
-            tvHeadline.setText(getString(R.string.headline_branch_count, branchList.size()));
-        }
+                "Chi Matcha Medan",
+                "Jl. Gatot Subroto No. 50, Medan",
+                "09:00 - 22:00"));
 
         RecyclerView rvBranches = findViewById(R.id.rvBranches);
         if (rvBranches != null) {

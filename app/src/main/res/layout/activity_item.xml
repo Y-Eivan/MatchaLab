@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:background="@color/background">
 
-        <!-- Top bar -->
+        <!--top bar-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -51,7 +51,7 @@
 
         </LinearLayout>
 
-        <!-- Scrollable content -->
+        <!--scrollable content-->
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -62,7 +62,7 @@
                 android:orientation="vertical"
                 android:paddingBottom="24dp">
 
-                <!-- Header section -->
+                <!--header section-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
 
                 </LinearLayout>
 
-                <!-- Chip filter row -->
+                <!--chips for filtering-->
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -181,7 +181,8 @@
 
                 </HorizontalScrollView>
 
-                <!-- Product grid -->
+                <!--product grid-->
+                <!--Item adapter to fill it-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvItems"
                     android:layout_width="match_parent"

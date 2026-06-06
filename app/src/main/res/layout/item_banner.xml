@@ -2,7 +2,23 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!-- Frame layout here because LinearLayout would cause the contents to stack vertically and no overlap -->
 
+    <!-- Background photo -->
+    <ImageView
+        android:id="@+id/ivBannerImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
+    <!-- Dark gradient overlay for text legibility -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_banner_overlay" />
+
+    <!-- Text content -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

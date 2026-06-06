@@ -7,14 +7,13 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <!-- Main content (must be first child) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/background">
 
-        <!-- Top Bar (sticky, outside scroll) -->
+        <!--top bar-->
         <LinearLayout
             android:id="@+id/topBar"
             android:layout_width="match_parent"
@@ -53,7 +52,7 @@
 
         </LinearLayout>
 
-        <!-- Scrollable content -->
+        <!--scrollable content-->
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -65,7 +64,7 @@
                 android:orientation="vertical"
                 android:paddingBottom="24dp">
 
-                <!-- Greeting section -->
+                <!--greeting section-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,7 +94,7 @@
 
                 </LinearLayout>
 
-                <!-- Carousel section -->
+                <!--carousel section-->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
@@ -113,7 +112,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
 
-                        <!-- Bottom overlay: arrows at sides, dots centered -->
+                        <!--bottom overlay: arrows at sides, dots centered-->
                         <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="52dp"
@@ -176,7 +175,7 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Quick Menu section -->
+                <!--quick menu-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -200,9 +199,12 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="3"
-                        android:baselineAligned="false">
+                        android:baselineAligned="false"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:paddingBottom="6dp">
 
-                        <!-- Items card -->
+                        <!--items card-->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardItems"
                             android:layout_width="0dp"
@@ -210,8 +212,8 @@
                             android:layout_weight="1"
                             android:layout_marginEnd="6dp"
                             app:cardCornerRadius="18dp"
-                            app:cardBackgroundColor="@color/surface_tint"
-                            app:cardElevation="0dp">
+                            app:cardBackgroundColor="@color/surface"
+                            app:cardElevation="2dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -223,7 +225,8 @@
                                 <FrameLayout
                                     android:layout_width="38dp"
                                     android:layout_height="38dp"
-                                    android:background="@drawable/bg_circle_white">
+                                    android:background="@drawable/bg_circle_white"
+                                    android:backgroundTint="@color/secondary">
 
                                     <ImageView
                                         android:layout_width="20dp"
@@ -239,13 +242,13 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8dp"
                                     android:text="@string/menu_items"
-                                    android:fontFamily="@font/inter_semibold"
+                                    android:fontFamily="@font/inter_medium"
                                     android:textSize="14sp"
                                     android:textColor="@color/text_primary" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Branch card -->
+                        <!--branch card-->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardBranch"
                             android:layout_width="0dp"
@@ -254,8 +257,8 @@
                             android:layout_marginStart="6dp"
                             android:layout_marginEnd="6dp"
                             app:cardCornerRadius="18dp"
-                            app:cardBackgroundColor="#F4E6EC"
-                            app:cardElevation="0dp">
+                            app:cardBackgroundColor="@color/surface"
+                            app:cardElevation="2dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -267,14 +270,15 @@
                                 <FrameLayout
                                     android:layout_width="38dp"
                                     android:layout_height="38dp"
-                                    android:background="@drawable/bg_circle_white">
+                                    android:background="@drawable/bg_circle_white"
+                                    android:backgroundTint="@color/secondary">
 
                                     <ImageView
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="center"
                                         android:src="@drawable/ic_pin"
-                                        app:tint="@color/accent"
+                                        app:tint="@color/primary"
                                         android:contentDescription="@null" />
                                 </FrameLayout>
 
@@ -283,13 +287,13 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8dp"
                                     android:text="@string/menu_branch"
-                                    android:fontFamily="@font/inter_semibold"
+                                    android:fontFamily="@font/inter_medium"
                                     android:textSize="14sp"
                                     android:textColor="@color/text_primary" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Log Out card -->
+                        <!--log out card-->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardLogout"
                             android:layout_width="0dp"
@@ -297,8 +301,8 @@
                             android:layout_weight="1"
                             android:layout_marginStart="6dp"
                             app:cardCornerRadius="18dp"
-                            app:cardBackgroundColor="#F4F0E6"
-                            app:cardElevation="0dp">
+                            app:cardBackgroundColor="@color/surface"
+                            app:cardElevation="2dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -310,14 +314,15 @@
                                 <FrameLayout
                                     android:layout_width="38dp"
                                     android:layout_height="38dp"
-                                    android:background="@drawable/bg_circle_white">
+                                    android:background="@drawable/bg_circle_white"
+                                    android:backgroundTint="@color/secondary">
 
                                     <ImageView
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="center"
                                         android:src="@drawable/ic_logout"
-                                        app:tint="#86683A"
+                                        app:tint="@color/primary"
                                         android:contentDescription="@null" />
                                 </FrameLayout>
 
@@ -326,7 +331,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8dp"
                                     android:text="@string/menu_logout"
-                                    android:fontFamily="@font/inter_semibold"
+                                    android:fontFamily="@font/inter_medium"
                                     android:textSize="14sp"
                                     android:textColor="@color/text_primary" />
                             </LinearLayout>
@@ -335,7 +340,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- Today's Pick section -->
+                <!--today's pick, hard coding this-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -376,7 +381,7 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <!-- Product card 1 -->
+                        <!--product card 1-->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardPick1"
                             android:layout_width="0dp"
@@ -414,35 +419,19 @@
                                         android:textSize="14sp"
                                         android:textColor="@color/text_primary" />
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
+                                    <TextView
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:gravity="center_vertical"
-                                        android:layout_marginTop="4dp">
-
-                                        <TextView
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:text="@string/product_classic_price"
-                                            android:fontFamily="@font/inter_bold"
-                                            android:textSize="14sp"
-                                            android:textColor="@color/primary" />
-
-                                        <ImageButton
-                                            android:layout_width="28dp"
-                                            android:layout_height="28dp"
-                                            android:background="@drawable/bg_circle_primary"
-                                            android:src="@drawable/ic_plus"
-                                            app:tint="@color/surface"
-                                            android:contentDescription="@null" />
-                                    </LinearLayout>
+                                        android:layout_marginTop="4dp"
+                                        android:text="@string/product_classic_price"
+                                        android:fontFamily="@font/inter_bold"
+                                        android:textSize="14sp"
+                                        android:textColor="@color/primary" />
                                 </LinearLayout>
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
-                        <!-- Product card 2 -->
+                        <!--product card 2-->
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardPick2"
                             android:layout_width="0dp"
@@ -462,7 +451,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="150dp"
-                                    android:src="@drawable/img_matcha_iced"
+                                    android:src="@drawable/img_ceremonial_matcha"
                                     android:scaleType="centerCrop"
                                     android:contentDescription="@null" />
 
@@ -475,35 +464,19 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/product_iced_name"
+                                        android:text="@string/product_ceremonial_name"
                                         android:fontFamily="@font/inter_semibold"
                                         android:textSize="14sp"
                                         android:textColor="@color/text_primary" />
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
+                                    <TextView
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:gravity="center_vertical"
-                                        android:layout_marginTop="4dp">
-
-                                        <TextView
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:text="@string/product_iced_price"
-                                            android:fontFamily="@font/inter_bold"
-                                            android:textSize="14sp"
-                                            android:textColor="@color/primary" />
-
-                                        <ImageButton
-                                            android:layout_width="28dp"
-                                            android:layout_height="28dp"
-                                            android:background="@drawable/bg_circle_primary"
-                                            android:src="@drawable/ic_plus"
-                                            app:tint="@color/surface"
-                                            android:contentDescription="@null" />
-                                    </LinearLayout>
+                                        android:layout_marginTop="4dp"
+                                        android:text="@string/product_ceremonial_price"
+                                        android:fontFamily="@font/inter_bold"
+                                        android:textSize="14sp"
+                                        android:textColor="@color/primary" />
                                 </LinearLayout>
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
@@ -516,7 +489,7 @@
 
     </LinearLayout>
 
-    <!-- Drawer (must be second child) -->
+    <!--sidebar thingy-->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"
         android:layout_width="280dp"

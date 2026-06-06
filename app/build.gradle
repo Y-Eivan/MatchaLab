@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace 'com.example.matchalaab'
-    compileSdk 36
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.example.matchalaab"
-        minSdk 35
+        minSdk 30
         targetSdk 35
         versionCode 1
         versionName "1.0"
@@ -39,6 +39,5 @@ dependencies {
     androidTestImplementation libs.espresso.core
 
     //Things im adding
-    implementation libs.material.v1120
     implementation libs.viewpager2
 }

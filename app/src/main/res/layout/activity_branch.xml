@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:background="@color/background">
 
-        <!-- Top bar -->
+        <!--top bar-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -51,35 +51,7 @@
 
         </LinearLayout>
 
-        <!-- Headline + subtitle -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="12dp">
-
-            <TextView
-                android:id="@+id/tvBranchHeadline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_bold"
-                android:textSize="26sp"
-                android:textColor="@color/text_primary" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/subtitle_branch"
-                android:fontFamily="@font/inter_regular"
-                android:textSize="13sp"
-                android:textColor="@color/text_secondary" />
-
-        </LinearLayout>
-
-        <!-- Branch list -->
+        <!--branch list-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvBranches"
             android:layout_width="match_parent"

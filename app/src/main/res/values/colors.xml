@@ -1,18 +1,29 @@
 <resources>
-    <color name="primary">#506051</color>
-    <color name="secondary">#74A177</color>
-    <color name="accent">#B6748D</color>
-    <color name="background">#FAFAFA</color>
-    <color name="text_primary">#16161D</color>
-    <color name="text_secondary">#9916161D</color>
-    <color name="text_placeholder">#5916161D</color>
-    <color name="divider">#1416161D</color>
-    <color name="surface">#FFFFFF</color>
-    <color name="surface_tint">#F2F4F0</color>
-    <color name="error">#B3261E</color>
-    <!-- Button states -->
-    <color name="btn_hover">#3F4C40</color>
-    <color name="btn_pressed">#2F3A30</color>
-    <!-- Card interaction -->
-    <color name="card_ripple">#1A000000</color>
+    <!--brand colors-->
+    <color name="primary">#506051</color>    <!--deep matcha green-->
+    <color name="secondary">#74A177</color>  <!--lighter green, used for hero bg and secondary elements-->
+    <color name="accent">#B6748D</color>     <!--dusty rose, flagship tag and seasonal banner-->
+
+    <!--backgrounds-->
+    <color name="background">#FAFAFA</color>     <!--off-white app background-->
+    <color name="surface">#FFFFFF</color>         <!--pure white card/sheet surface-->
+    <color name="surface_tint">#F2F4F0</color>   <!--subtle green-tinted surface for nav header etc-->
+
+    <!--text-->
+    <color name="text_primary">#16161D</color>       <!--near-black for headings and body-->
+    <color name="text_secondary">#9916161D</color>   <!--60% opacity text_primary-->
+    <color name="text_placeholder">#5916161D</color> <!--35% opacity text_primary for hints-->
+
+    <!--dividers and borders-->
+    <color name="divider">#1416161D</color>  <!--8% opacity text_primary, subtle separator-->
+
+    <!--semantic-->
+    <color name="error">#B3261E</color>  <!--material default error red-->
+
+    <!--button press states-->
+    <color name="btn_hover">#3F4C40</color>    <!--one shade darker than primary-->
+    <color name="btn_pressed">#2F3A30</color>  <!--two shades darker, used on action_down-->
+
+    <!--ripple-->
+    <color name="card_ripple">#1A000000</color>  <!--10% black overlay for card press-->
 </resources>

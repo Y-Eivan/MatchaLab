@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <!-- Scrollable content -->
+    <!--scrollable content-->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -16,7 +16,7 @@
             android:orientation="vertical"
             android:paddingBottom="100dp">
 
-            <!-- Hero image -->
+            <!--hero image-->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
@@ -31,7 +31,7 @@
 
             </FrameLayout>
 
-            <!-- Content below image -->
+            <!--content below image-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,10 +80,10 @@
                     android:fontFamily="@font/inter_regular"
                     android:textSize="14sp"
                     android:textColor="@color/text_secondary"
-                    android:lineSpacingMultiplier="1.6"
+                    android:lineSpacingMultiplier="1.4"
                     android:layout_marginBottom="24dp" />
 
-                <!-- Pick your preference -->
+                <!--preference section label-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                     android:textColor="@color/text_primary"
                     android:layout_marginBottom="10dp" />
 
-                <!-- Dropdowns row -->
+                <!--sugar and ice level-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -101,6 +101,7 @@
                     android:weightSum="2"
                     android:layout_marginBottom="24dp">
 
+                    <!--Ice-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilIceLevel"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -122,6 +123,7 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <!--sugr-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilSugarLevel"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -145,7 +147,7 @@
 
                 </LinearLayout>
 
-                <!-- Quantity label -->
+                <!--quantity label-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -155,7 +157,7 @@
                     android:textColor="@color/text_primary"
                     android:layout_marginBottom="8dp" />
 
-                <!-- Quantity stepper: [hint/number] [−] [+] -->
+                <!--quantity stepper-->
                 <LinearLayout
                     android:id="@+id/quantityStepper"
                     android:layout_width="match_parent"
@@ -166,6 +168,7 @@
                     android:paddingStart="12dp"
                     android:paddingEnd="6dp">
 
+                    <!--Inputting text within qty-->
                     <EditText
                         android:id="@+id/etQuantity"
                         android:layout_width="0dp"
@@ -179,7 +182,7 @@
                         android:fontFamily="@font/inter_regular"
                         android:textColor="@color/text_primary"
                         android:textColorHint="@color/text_secondary" />
-
+                    <!--Using buttons-->
                     <ImageButton
                         android:id="@+id/btnMinus"
                         android:layout_width="40dp"
@@ -212,7 +215,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:visibility="gone" />
 
-                <!-- Notes label -->
+                <!--notes label-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -223,7 +226,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="8dp" />
 
-                <!-- Notes field -->
+                <!--notes field-->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilNotes"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -251,7 +254,7 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Back button overlay -->
+    <!--back button-->
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="40dp"
@@ -262,7 +265,7 @@
         android:tint="@color/text_primary"
         android:contentDescription="@string/cd_back" />
 
-    <!-- Bell button overlay -->
+    <!--bell button-->
     <ImageButton
         android:id="@+id/btnBell"
         android:layout_width="40dp"
@@ -274,7 +277,7 @@
         android:tint="@color/text_primary"
         android:contentDescription="@string/cd_notifications" />
 
-    <!-- Order button pinned at bottom -->
+    <!--order button-->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnOrder"
         android:layout_width="match_parent"

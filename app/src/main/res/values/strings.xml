@@ -52,8 +52,8 @@
     <string name="tag_new">New</string>
     <string name="product_classic_name">Classic Ceremonial</string>
     <string name="product_classic_price">Rp. 25.000</string>
-    <string name="product_iced_name">Iced Matcha Latte</string>
-    <string name="product_iced_price">Rp. 28.000</string>
+    <string name="product_ceremonial_name">Ceremonial Hot Matcha</string>
+    <string name="product_ceremonial_price">Rp. 28.000</string>
     <string name="cd_open_menu">Open menu</string>
     <string name="cd_notifications">Notifications</string>
     <string name="cd_previous">Previous</string>
@@ -64,7 +64,7 @@
     <string name="title_our_branches">Our Branches</string>
 
     <!-- Item page -->
-    <string name="headline_slow_brewed">Stone-mileed\nSlow-brewed</string>
+    <string name="headline_slow_brewed">Stone-milled\nSlow-brewed</string>
     <string name="subtitle_slow_brewed">Properly sourced, satisfying quality</string>
     <string name="chip_all">All</string>
     <string name="chip_hot">Hot</string>

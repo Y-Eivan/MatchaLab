@@ -40,6 +40,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.tvPrice.setText(formatPrice(item.getPrice()));
         holder.imgProduct.setImageResource(item.getImageResId());
 
+        //pass item data as intent extras and open detail screen
         holder.itemView.setOnClickListener(v -> {
             android.content.Intent intent = new android.content.Intent(v.getContext(), ItemDetailActivity.class);
             intent.putExtra("name", item.getName());
@@ -58,6 +59,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
     private String formatPrice(double price) {
+        //indonesian price format: Rp. 25.000
         return String.format("Rp. %,.0f", price).replace(',', '.');
     }
 

@@ -3,6 +3,7 @@ package com.example.matchalaab;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,10 +28,11 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.BannerView
     @Override
     public void onBindViewHolder(@NonNull BannerViewHolder holder, int position) {
         BannerItem banner = banners.get(position);
+        //fill banner card with data from BannerItem
+        holder.ivImage.setImageResource(banner.getImageResId());
         holder.tvTag.setText(banner.getTag());
         holder.tvTitle.setText(banner.getTitle());
         holder.tvSubtitle.setText(banner.getSubtitle());
-        holder.root.setBackgroundColor(banner.getBackgroundColor());
     }
 
     @Override
@@ -39,14 +41,14 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.BannerView
     }
 
     static class BannerViewHolder extends RecyclerView.ViewHolder {
-        View root;
+        ImageView ivImage;
         TextView tvTag, tvTitle, tvSubtitle;
 
         BannerViewHolder(View itemView) {
             super(itemView);
-            root = itemView;
-            tvTag = itemView.findViewById(R.id.tvBannerTag);
-            tvTitle = itemView.findViewById(R.id.tvBannerTitle);
+            ivImage   = itemView.findViewById(R.id.ivBannerImage);
+            tvTag     = itemView.findViewById(R.id.tvBannerTag);
+            tvTitle   = itemView.findViewById(R.id.tvBannerTitle);
             tvSubtitle = itemView.findViewById(R.id.tvBannerSubtitle);
         }
     }

@@ -3,6 +3,7 @@ package com.example.matchalaab;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.WindowInsetsController;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
@@ -29,8 +30,14 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //white status bar with dark icons
         getWindow().setStatusBarColor(Color.WHITE);
-        getWindow().getDecorView().setSystemUiVisibility(android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        WindowInsetsController controller = getWindow().getInsetsController();
+        if (controller != null) {
+            controller.setSystemBarsAppearance(
+                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS);
+        }
 
         drawerLayout = findViewById(R.id.drawerLayout);
         drawerLayout.setStatusBarBackgroundColor(Color.WHITE);
@@ -43,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupGreeting() {
+        //pull saved username from shared prefs
         String username = getSharedPreferences("chi_matcha", MODE_PRIVATE)
                 .getString("username", "Guest");
 
@@ -51,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
 
         tvGreeting.setText("Welcome, " + username);
 
+        //time-based sub-greeting
         int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         if (hour < 12) {
             tvTimeGreeting.setText("Good morning...");
@@ -67,11 +76,13 @@ public class HomeActivity extends AppCompatActivity {
 
         NavigationView navView = findViewById(R.id.navView);
 
+        //show logged-in username in drawer header
         String username = getSharedPreferences("chi_matcha", MODE_PRIVATE)
                 .getString("username", "Guest");
         android.widget.TextView tvNavUsername = navView.getHeaderView(0).findViewById(R.id.tvNavUsername);
         tvNavUsername.setText(username);
 
+        //drawer navigation
         navView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_items) {
@@ -92,10 +103,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupCarousel() {
+        //banner data — field details in BannerItem.java
         List<BannerItem> banners = new ArrayList<>();
-        banners.add(new BannerItem("Summer Special", "Cool matcha blends", "New", Color.parseColor("#3D5640")));
-        banners.add(new BannerItem("Classic Range", "Stone-ground excellence", "Classic", Color.parseColor("#74A177")));
-        banners.add(new BannerItem("Sweet Treats", "Matcha desserts & more", "Seasonal", Color.parseColor("#B6748D")));
+        banners.add(new BannerItem("Summer Special", "Cool matcha blends", "New", R.drawable.img_matcha_latte));
+        banners.add(new BannerItem("Classic Range", "Stone-ground excellence", "Classic", R.drawable.img_ceremonial_matcha));
+        banners.add(new BannerItem("Sweet Treats", "Matcha desserts & more", "Seasonal", R.drawable.img_matcha_mochi));
 
         viewPager = findViewById(R.id.viewPager);
         ImageButton btnPrev = findViewById(R.id.btnPrev);
@@ -112,6 +124,7 @@ public class HomeActivity extends AppCompatActivity {
 
         final int bannerCount = banners.size();
 
+        //sync dot indicators with current page
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
@@ -123,6 +136,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //auto-advance every 3s
         autoAdvanceHandler = new Handler(Looper.getMainLooper());
         autoAdvanceRunnable = () -> {
             int next = (viewPager.getCurrentItem() + 1) % bannerCount;
@@ -130,6 +144,7 @@ public class HomeActivity extends AppCompatActivity {
             autoAdvanceHandler.postDelayed(autoAdvanceRunnable, 3000);
         };
 
+        //prev/next reset the auto-advance timer
         btnPrev.setOnClickListener(v -> {
             autoAdvanceHandler.removeCallbacks(autoAdvanceRunnable);
             int cur = viewPager.getCurrentItem();
@@ -148,6 +163,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        //restart auto-advance when returning to this screen
         if (autoAdvanceHandler != null && autoAdvanceRunnable != null) {
             autoAdvanceHandler.removeCallbacks(autoAdvanceRunnable);
             autoAdvanceHandler.postDelayed(autoAdvanceRunnable, 3000);
@@ -157,12 +173,14 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        //stop auto-advance when leaving to avoid background callbacks
         if (autoAdvanceHandler != null) {
             autoAdvanceHandler.removeCallbacks(autoAdvanceRunnable);
         }
     }
 
     private void setupQuickMenu() {
+        //quick-access cards to main sections
         findViewById(R.id.cardItems).setOnClickListener(v ->
                 startActivity(new Intent(this, ItemActivity.class)));
 
@@ -177,15 +195,16 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupTodaysPick() {
+        //featured itemss for the today's pick section
         MatchaItem pick1 = new MatchaItem(1, "Classic Ceremonial",
                 "Stone-ground excellence",
                 "Pure ceremonial grade matcha, whisked traditionally. Simple, clean, and deeply satisfying.",
                 25000, R.drawable.img_matcha_classic, "Hot", "Drink");
 
-        MatchaItem pick2 = new MatchaItem(3, "Iced Matcha Latte",
-                "Cold brew",
-                "Slow-shaken ceremonial matcha over creamy oat milk, finished with a whisper of cane. A clean, vegetal lift. The kind of cup that makes the afternoon yours.",
-                28000, R.drawable.img_matcha_iced, "Iced", "Drink");
+        MatchaItem pick2 = new MatchaItem(2, "Ceremonial Hot Matcha",
+                "Traditional preparation",
+                "Single-origin ceremonial grade matcha, whisked with hot water in the traditional style. Rich, earthy, and grounding.",
+                28000, R.drawable.img_ceremonial_matcha, "Hot", "Drink");
 
         findViewById(R.id.cardPick1).setOnClickListener(v -> openDetail(pick1));
         findViewById(R.id.cardPick2).setOnClickListener(v -> openDetail(pick2));
@@ -197,6 +216,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void openDetail(MatchaItem item) {
+        //passes item data when clicked
+        //passes it to item detail
         Intent intent = new Intent(this, ItemDetailActivity.class);
         intent.putExtra("name", item.getName());
         intent.putExtra("price", item.getPrice());

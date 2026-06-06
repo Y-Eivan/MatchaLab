@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.WindowInsetsController;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -33,10 +34,14 @@ public class ItemDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_detail);
 
+        //colored status bar to match hero image area
         getWindow().setStatusBarColor(getResources().getColor(R.color.secondary, null));
-        getWindow().getDecorView().setSystemUiVisibility(0);
+        WindowInsetsController controller = getWindow().getInsetsController();
+        if (controller != null) {
+            controller.setSystemBarsAppearance(0, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS);
+        }
 
-        // Receive intent data
+        //receive item data from intent
         String name       = getIntent().getStringExtra("name");
         itemPrice         = getIntent().getDoubleExtra("price", 0);
         String detailDesc = getIntent().getStringExtra("detailDesc");
@@ -44,7 +49,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         int imageRes      = getIntent().getIntExtra("image", 0);
         String tag        = getIntent().getStringExtra("tag");
 
-        // Bind views
+        //bind views
         TextView tvName     = findViewById(R.id.tvDetailName);
         TextView tvPrice    = findViewById(R.id.tvDetailPrice);
         TextView tvDesc     = findViewById(R.id.tvDetailDesc);
@@ -58,6 +63,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         tvName.setText(name);
         tvPrice.setText(formatPrice(itemPrice));
         tvCategory.setText(tag != null ? tag : "");
+        //prefer full description, fall back to short if not set
         tvDesc.setText(detailDesc != null && !detailDesc.isEmpty() ? detailDesc : shortDesc);
         if (imageRes != 0) imgDetail.setImageResource(imageRes);
 
@@ -69,6 +75,7 @@ public class ItemDetailActivity extends AppCompatActivity {
     }
 
     private void setupDropdowns() {
+        //expose dropdown menus for ice and sugar preference
         String[] iceLevels = {"Full Ice", "Less Ice", "Half Ice", "No Ice"};
         String[] sugarLevels = {"Full Sugar", "Less Sugar", "Half Sugar", "No Sugar"};
 
@@ -106,6 +113,7 @@ public class ItemDetailActivity extends AppCompatActivity {
             updateOrderButton();
         });
 
+        //keep quantity in sync if user types directly
         etQuantity.addTextChangedListener(new android.text.TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override public void onTextChanged(CharSequence s, int start, int before, int count) { }
@@ -123,6 +131,7 @@ public class ItemDetailActivity extends AppCompatActivity {
     }
 
     private void updateOrderButton() {
+        //show running total in button text
         if (quantity > 0) {
             double total = itemPrice * quantity;
             btnOrder.setText("Order · (" + formatPrice(total) + ")");
@@ -132,7 +141,7 @@ public class ItemDetailActivity extends AppCompatActivity {
     }
 
     private void setupOrderButton() {
-        // While-hover (pressed) color change
+        //hover: change color on press, restore on release
         btnOrder.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 btnOrder.setBackgroundTintList(ColorStateList.valueOf(
@@ -147,13 +156,19 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         btnOrder.setOnClickListener(v -> {
             if (quantity <= 0) {
-                tvQtyError.setVisibility(View.VISIBLE);
+                //highlight stepper field then show error dialog
                 quantityStepper.setBackgroundResource(R.drawable.bg_stepper_field_error);
+                new MaterialAlertDialogBuilder(this)
+                        .setTitle(getString(R.string.dialog_qty_title))
+                        .setMessage(getString(R.string.dialog_qty_msg))
+                        .setPositiveButton("OK", null)
+                        .show();
                 return;
             }
 
             clearQtyError();
 
+            //success: notify then go back to item list
             new MaterialAlertDialogBuilder(this)
                     .setTitle(getString(R.string.dialog_order_title))
                     .setMessage(getString(R.string.dialog_order_msg))

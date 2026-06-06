@@ -1,14 +1,14 @@
 package com.example.matchalaab;
 
 public class MatchaItem {
-    private final int id;
-    private final String name;
-    private final String description;
-    private final String detailDescription;
-    private final double price;
-    private final int imageResId;
-    private final String tag;
-    private final String type;
+    private final int id;               //unique item id
+    private final String name;          //display name on card and detail screen
+    private final String description;   //short subtitle shown on product card
+    private final String detailDescription; //full body text shown on detail screen
+    private final double price;         //price in IDR 
+    private final int imageResId;       //drawable resource id for product image
+    private final String tag;           //category used by chip filter
+    private final String type;          //product type
 
     public MatchaItem(int id, String name, String description, String detailDescription,
                       double price, int imageResId, String tag, String type) {
