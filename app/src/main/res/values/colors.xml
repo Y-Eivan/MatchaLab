@@ -21,9 +21,16 @@
     <color name="error">#B3261E</color>  <!--material default error red-->
 
     <!--button press states-->
-    <color name="btn_hover">#3F4C40</color>    <!--one shade darker than primary-->
     <color name="btn_pressed">#2F3A30</color>  <!--two shades darker, used on action_down-->
 
     <!--ripple-->
     <color name="card_ripple">#1A000000</color>  <!--10% black overlay for card press-->
+
+    <!--banner / overlay colors-->
+    <color name="on_banner_secondary">#CCFFFFFF</color>  <!--80% white, subtitle text on dark banner-->
+    <color name="dot_inactive_color">#60FFFFFF</color>   <!--38% white, inactive carousel dot-->
+    <color name="carousel_btn_bg">#70FFFFFF</color>      <!--44% white, prev/next button background-->
+    <color name="overlay_dark">#99000000</color>         <!--60% black, gradient end on banner-->
+    <color name="tag_pill_bg">#44000000</color>          <!--27% black, tag pill on banner-->
+    <color name="btn_ripple">#33FFFFFF</color>           <!--20% white ripple on primary buttons-->
 </resources>

@@ -225,15 +225,14 @@
                                 <FrameLayout
                                     android:layout_width="38dp"
                                     android:layout_height="38dp"
-                                    android:background="@drawable/bg_circle_white"
-                                    android:backgroundTint="@color/secondary">
+                                    android:background="@drawable/bg_circle_outline">
 
                                     <ImageView
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="center"
                                         android:src="@drawable/ic_cup"
-                                        app:tint="@color/primary"
+                                        app:tint="@color/accent"
                                         android:contentDescription="@null" />
                                 </FrameLayout>
 
@@ -270,15 +269,14 @@
                                 <FrameLayout
                                     android:layout_width="38dp"
                                     android:layout_height="38dp"
-                                    android:background="@drawable/bg_circle_white"
-                                    android:backgroundTint="@color/secondary">
+                                    android:background="@drawable/bg_circle_outline">
 
                                     <ImageView
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="center"
                                         android:src="@drawable/ic_pin"
-                                        app:tint="@color/primary"
+                                        app:tint="@color/accent"
                                         android:contentDescription="@null" />
                                 </FrameLayout>
 
@@ -314,15 +312,15 @@
                                 <FrameLayout
                                     android:layout_width="38dp"
                                     android:layout_height="38dp"
-                                    android:background="@drawable/bg_circle_white"
-                                    android:backgroundTint="@color/secondary">
+                                    android:background="@drawable/bg_circle_outline">
+
 
                                     <ImageView
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="center"
                                         android:src="@drawable/ic_logout"
-                                        app:tint="@color/primary"
+                                        app:tint="@color/accent"
                                         android:contentDescription="@null" />
                                 </FrameLayout>
 
@@ -401,7 +399,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="150dp"
-                                    android:src="@drawable/img_matcha_classic"
+                                    android:src="@drawable/img_ceremonial_matcha"
                                     android:scaleType="centerCrop"
                                     android:contentDescription="@null" />
 
@@ -414,7 +412,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/product_classic_name"
+                                        android:text="@string/product_ceremonial_name"
                                         android:fontFamily="@font/inter_semibold"
                                         android:textSize="14sp"
                                         android:textColor="@color/text_primary" />
@@ -423,7 +421,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="4dp"
-                                        android:text="@string/product_classic_price"
+                                        android:text="@string/product_ceremonial_price"
                                         android:fontFamily="@font/inter_bold"
                                         android:textSize="14sp"
                                         android:textColor="@color/primary" />
@@ -451,7 +449,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="150dp"
-                                    android:src="@drawable/img_ceremonial_matcha"
+                                    android:src="@drawable/img_matcha_iced"
                                     android:scaleType="centerCrop"
                                     android:contentDescription="@null" />
 
@@ -464,7 +462,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/product_ceremonial_name"
+                                        android:text="@string/product_iced_name"
                                         android:fontFamily="@font/inter_semibold"
                                         android:textSize="14sp"
                                         android:textColor="@color/text_primary" />
@@ -473,7 +471,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="4dp"
-                                        android:text="@string/product_ceremonial_price"
+                                        android:text="@string/product_iced_price"
                                         android:fontFamily="@font/inter_bold"
                                         android:textSize="14sp"
                                         android:textColor="@color/primary" />

@@ -33,7 +33,10 @@
     <string name="subtitle_register">Three quick fields and you\'re sipping in no time.</string>
 
 
-    <string name="greeting_afternoon">Good afternoon</string>
+    <string name="greeting_welcome">Welcome, %s</string>
+    <string name="greeting_morning">Good morning...</string>
+    <string name="greeting_afternoon">Good afternoon...</string>
+    <string name="greeting_evening">Good evening...</string>
     <string name="section_quick_menu">Quick menu</string>
     <string name="section_todays_pick">Today\'s pick</string>
     <string name="action_see_all">See all</string>
@@ -50,10 +53,10 @@
     <string name="subtitle_branch">one is probably on your way home</string>
     <string name="tag_flagship">Flagship</string>
     <string name="tag_new">New</string>
-    <string name="product_classic_name">Classic Ceremonial</string>
-    <string name="product_classic_price">Rp. 25.000</string>
-    <string name="product_ceremonial_name">Ceremonial Hot Matcha</string>
-    <string name="product_ceremonial_price">Rp. 28.000</string>
+    <string name="product_ceremonial_name">Ceremonial Matcha</string>
+    <string name="product_ceremonial_price">Rp. 30.000</string>
+    <string name="product_iced_name">Iced Matcha Latte</string>
+    <string name="product_iced_price">Rp. 28.000</string>
     <string name="cd_open_menu">Open menu</string>
     <string name="cd_notifications">Notifications</string>
     <string name="cd_previous">Previous</string>
@@ -79,6 +82,7 @@
     <string name="hint_ice_level">Ice level</string>
     <string name="hint_sugar_level">Sugar level</string>
     <string name="btn_order">Order</string>
+    <string name="btn_order_with_price">Order · (%s)</string>
     <string name="cd_back">Back</string>
     <string name="cd_decrease">Decrease quantity</string>
     <string name="cd_increase">Increase quantity</string>

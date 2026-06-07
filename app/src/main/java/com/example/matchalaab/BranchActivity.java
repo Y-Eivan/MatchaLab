@@ -91,6 +91,7 @@ public class BranchActivity extends AppCompatActivity {
                 "Jl. Gatot Subroto No. 50, Medan",
                 "09:00 - 22:00"));
 
+        //vertical list, one card per branch
         RecyclerView rvBranches = findViewById(R.id.rvBranches);
         if (rvBranches != null) {
             rvBranches.setLayoutManager(new LinearLayoutManager(this));

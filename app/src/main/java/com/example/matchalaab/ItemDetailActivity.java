@@ -99,6 +99,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         ImageButton btnPlus  = findViewById(R.id.btnPlus);
 
         btnMinus.setOnClickListener(v -> {
+            //clamp at 0, clear field when it hits zero
             if (quantity > 0) {
                 quantity--;
                 etQuantity.setText(quantity > 0 ? String.valueOf(quantity) : "");
@@ -134,9 +135,9 @@ public class ItemDetailActivity extends AppCompatActivity {
         //show running total in button text
         if (quantity > 0) {
             double total = itemPrice * quantity;
-            btnOrder.setText("Order · (" + formatPrice(total) + ")");
+            btnOrder.setText(getString(R.string.btn_order_with_price, formatPrice(total)));
         } else {
-            btnOrder.setText("Order");
+            btnOrder.setText(getString(R.string.btn_order));
         }
     }
 
@@ -151,7 +152,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                 btnOrder.setBackgroundTintList(ColorStateList.valueOf(
                         getResources().getColor(R.color.primary, null)));
             }
-            return false;
+            return true;
         });
 
         btnOrder.setOnClickListener(v -> {
@@ -161,7 +162,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                 new MaterialAlertDialogBuilder(this)
                         .setTitle(getString(R.string.dialog_qty_title))
                         .setMessage(getString(R.string.dialog_qty_msg))
-                        .setPositiveButton("OK", null)
+                        .setPositiveButton(android.R.string.ok, null)
                         .show();
                 return;
             }
@@ -172,7 +173,7 @@ public class ItemDetailActivity extends AppCompatActivity {
             new MaterialAlertDialogBuilder(this)
                     .setTitle(getString(R.string.dialog_order_title))
                     .setMessage(getString(R.string.dialog_order_msg))
-                    .setPositiveButton("OK", (dialog, which) -> {
+                    .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                         Intent intent = new Intent(this, ItemActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);

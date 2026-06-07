@@ -20,7 +20,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    // Fields — declared at class level so both onCreate and validateAndRegister can use them
+    //fields declared at class level so validateAndRegister can access them too
     private TextInputLayout tilUsername, tilPassword, tilConfirm;
     private TextInputEditText etUsername, etPassword, etConfirm;
     private MaterialButton btnCreate;
@@ -73,7 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
                 btnCreate.setBackgroundTintList(ColorStateList.valueOf(
                         getResources().getColor(R.color.primary, null)));
             }
-            return false;
+            return true;
         });
     }
 

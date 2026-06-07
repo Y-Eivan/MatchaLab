@@ -288,9 +288,9 @@
         android:text="@string/btn_order"
         android:fontFamily="@font/inter_semibold"
         android:textSize="14sp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/surface"
         app:backgroundTint="@color/btn_primary_bg"
         app:cornerRadius="16dp"
-        app:rippleColor="#33FFFFFF" />
+        app:rippleColor="@color/btn_ripple" />
 
 </FrameLayout>

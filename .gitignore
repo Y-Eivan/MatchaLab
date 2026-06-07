@@ -14,3 +14,19 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# build outputs
+*.apk
+*.aab
+*.ap_
+*.jks
+app/build/
+app/.idea/
+.github/
+
+# doc generation (do not commit)
+New folder/gen_doc.js
+New folder/node_modules/
+New folder/package.json
+New folder/package-lock.json
+New folder/ChiMatcha_Documentation_Template.docx

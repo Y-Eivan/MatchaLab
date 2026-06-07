@@ -33,7 +33,7 @@
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
             android:text="New"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/surface"
             android:textSize="11sp"
             android:fontFamily="@font/inter_semibold" />
 
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/surface"
                 android:textSize="22sp"
                 android:fontFamily="@font/inter_bold"
                 android:gravity="center"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="Subtitle"
-                android:textColor="#CCFFFFFF"
+                android:textColor="@color/on_banner_secondary"
                 android:textSize="14sp"
                 android:fontFamily="@font/inter_regular"
                 android:gravity="center" />

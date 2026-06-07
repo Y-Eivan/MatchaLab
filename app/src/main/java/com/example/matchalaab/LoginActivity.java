@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.text.Html;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.graphics.Typeface;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.WindowInsetsController;
 import android.view.MotionEvent;
 import android.widget.TextView;
@@ -44,8 +48,12 @@ public class LoginActivity extends AppCompatActivity {
 
         //link to register page with colored span
         if (tvRegisterLink != null) {
-            String registerText = "New to MatchaLab? <font color='#506051'><b>Create an account</b></font>";
-            tvRegisterLink.setText(Html.fromHtml(registerText, Html.FROM_HTML_MODE_LEGACY));
+            SpannableString ss = new SpannableString("New to MatchaLab? Create an account");
+            ss.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.primary, null)),
+                    18, 35, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ss.setSpan(new StyleSpan(Typeface.BOLD),
+                    18, 35, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            tvRegisterLink.setText(ss);
             tvRegisterLink.setOnClickListener(v -> {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             });

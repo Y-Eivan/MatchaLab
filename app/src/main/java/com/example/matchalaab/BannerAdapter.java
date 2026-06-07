@@ -11,6 +11,7 @@ import java.util.List;
 
 public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.BannerViewHolder> {
 
+    //list of banner data passed from HomeActivity
     private final List<BannerItem> banners;
 
     public BannerAdapter(List<BannerItem> banners) {
@@ -20,6 +21,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.BannerView
     @NonNull
     @Override
     public BannerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //inflate banner card layout for each slide
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_banner, parent, false);
         return new BannerViewHolder(view);
@@ -28,7 +30,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.BannerView
     @Override
     public void onBindViewHolder(@NonNull BannerViewHolder holder, int position) {
         BannerItem banner = banners.get(position);
-        //fill banner card with data from BannerItem
+        //fill each slot with image, tag badge, title and subtitle
         holder.ivImage.setImageResource(banner.getImageResId());
         holder.tvTag.setText(banner.getTag());
         holder.tvTitle.setText(banner.getTitle());
@@ -46,9 +48,10 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.BannerView
 
         BannerViewHolder(View itemView) {
             super(itemView);
-            ivImage   = itemView.findViewById(R.id.ivBannerImage);
-            tvTag     = itemView.findViewById(R.id.tvBannerTag);
-            tvTitle   = itemView.findViewById(R.id.tvBannerTitle);
+            //bind views from item_banner.xml
+            ivImage    = itemView.findViewById(R.id.ivBannerImage);
+            tvTag      = itemView.findViewById(R.id.tvBannerTag);
+            tvTitle    = itemView.findViewById(R.id.tvBannerTitle);
             tvSubtitle = itemView.findViewById(R.id.tvBannerSubtitle);
         }
     }

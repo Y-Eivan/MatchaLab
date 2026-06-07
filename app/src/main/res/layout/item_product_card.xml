@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_matcha_classic"
+            android:src="@drawable/img_iced_brown_sugar"
             android:contentDescription="@null" />
 
         <TextView
@@ -71,7 +71,7 @@
                 android:layout_height="28dp"
                 android:background="@drawable/bg_circle_primary"
                 android:src="@drawable/ic_plus"
-                android:tint="#FFFFFF"
+                app:tint="@color/surface"
                 android:contentDescription="@null" />
 
         </LinearLayout>

@@ -1,10 +1,10 @@
 package com.example.matchalaab;
 
 public class BannerItem {
-    private final String title;
-    private final String subtitle;
-    private final String tag;
-    private final int imageResId;
+    private final String title;      //main text on the banner card
+    private final String subtitle;   //smaller text below title
+    private final String tag;        //label badge shown at top left
+    private final int imageResId;    //drawable resource for banner background image
 
     public BannerItem(String title, String subtitle, String tag, int imageResId) {
         this.title = title;

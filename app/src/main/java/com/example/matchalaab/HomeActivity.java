@@ -57,16 +57,16 @@ public class HomeActivity extends AppCompatActivity {
         TextView tvGreeting = findViewById(R.id.tvGreeting);
         TextView tvTimeGreeting = findViewById(R.id.tvTimeGreeting);
 
-        tvGreeting.setText("Welcome, " + username);
+        tvGreeting.setText(getString(R.string.greeting_welcome, username));
 
         //time-based sub-greeting
         int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         if (hour < 12) {
-            tvTimeGreeting.setText("Good morning...");
+            tvTimeGreeting.setText(getString(R.string.greeting_morning));
         } else if (hour < 17) {
-            tvTimeGreeting.setText("Good afternoon...");
+            tvTimeGreeting.setText(getString(R.string.greeting_afternoon));
         } else {
-            tvTimeGreeting.setText("Good evening...");
+            tvTimeGreeting.setText(getString(R.string.greeting_evening));
         }
     }
 
@@ -103,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupCarousel() {
-        //banner data — field details in BannerItem.java
+        //banner data, field details in BannerItem.java
         List<BannerItem> banners = new ArrayList<>();
         banners.add(new BannerItem("Summer Special", "Cool matcha blends", "New", R.drawable.img_matcha_latte));
         banners.add(new BannerItem("Classic Range", "Stone-ground excellence", "Classic", R.drawable.img_ceremonial_matcha));
@@ -148,14 +148,14 @@ public class HomeActivity extends AppCompatActivity {
         btnPrev.setOnClickListener(v -> {
             autoAdvanceHandler.removeCallbacks(autoAdvanceRunnable);
             int cur = viewPager.getCurrentItem();
-            viewPager.setCurrentItem(cur > 0 ? cur - 1 : 0);
+            viewPager.setCurrentItem(cur > 0 ? cur - 1 : bannerCount - 1, true);
             autoAdvanceHandler.postDelayed(autoAdvanceRunnable, 3000);
         });
 
         btnNext.setOnClickListener(v -> {
             autoAdvanceHandler.removeCallbacks(autoAdvanceRunnable);
             int cur = viewPager.getCurrentItem();
-            viewPager.setCurrentItem(cur < bannerCount - 1 ? cur + 1 : bannerCount - 1);
+            viewPager.setCurrentItem((cur + 1) % bannerCount, true);
             autoAdvanceHandler.postDelayed(autoAdvanceRunnable, 3000);
         });
     }
@@ -195,16 +195,16 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupTodaysPick() {
-        //featured itemss for the today's pick section
-        MatchaItem pick1 = new MatchaItem(1, "Classic Ceremonial",
-                "Stone-ground excellence",
-                "Pure ceremonial grade matcha, whisked traditionally. Simple, clean, and deeply satisfying.",
-                25000, R.drawable.img_matcha_classic, "Hot", "Drink");
+        //featured items for today's pick section
+        MatchaItem pick1 = new MatchaItem(2, "Ceremonial Matcha",
+                "Single origin",
+                "Pure ceremonial grade matcha, whisked traditionally with hot water. Simple, clean, and deeply satisfying.",
+                30000, R.drawable.img_ceremonial_matcha, "Hot", "Drink");
 
-        MatchaItem pick2 = new MatchaItem(2, "Ceremonial Hot Matcha",
-                "Traditional preparation",
-                "Single-origin ceremonial grade matcha, whisked with hot water in the traditional style. Rich, earthy, and grounding.",
-                28000, R.drawable.img_ceremonial_matcha, "Hot", "Drink");
+        MatchaItem pick2 = new MatchaItem(3, "Iced Matcha Latte",
+                "Cold brew",
+                "Slow-shaken ceremonial matcha over creamy oat milk, finished with a whisper of cane. A clean, vegetal lift. The kind of cup that makes the afternoon yours.",
+                28000, R.drawable.img_matcha_iced, "Iced", "Drink");
 
         findViewById(R.id.cardPick1).setOnClickListener(v -> openDetail(pick1));
         findViewById(R.id.cardPick2).setOnClickListener(v -> openDetail(pick2));
@@ -216,8 +216,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void openDetail(MatchaItem item) {
-        //passes item data when clicked
-        //passes it to item detail
+        //pack item fields as extras and open detail screen
         Intent intent = new Intent(this, ItemDetailActivity.class);
         intent.putExtra("name", item.getName());
         intent.putExtra("price", item.getPrice());

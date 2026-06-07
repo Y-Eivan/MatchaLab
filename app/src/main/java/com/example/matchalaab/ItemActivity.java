@@ -55,14 +55,11 @@ public class ItemActivity extends AppCompatActivity {
         android.widget.TextView tvNavUsername = navView.getHeaderView(0).findViewById(R.id.tvNavUsername);
         tvNavUsername.setText(username);
 
-        //drawer navigation — finish() to avoid stacking activities
+        //drawer navigation, finish() used to avoid stacking activities
         navView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
                 finish();
-            } else if (id == R.id.nav_items) {
-                drawerLayout.closeDrawer(GravityCompat.START);
-                return true;
             } else if (id == R.id.nav_branch) {
                 startActivity(new Intent(this, BranchActivity.class));
                 finish();
