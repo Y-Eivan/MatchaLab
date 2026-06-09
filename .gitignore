@@ -5,12 +5,10 @@
 .DS_Store
 /build
 /captures
-.claude
 .externalNativeBuild
 .cxx
 local.properties
 
-# build outputs
 *.apk
 *.aab
 *.ap_
@@ -19,6 +17,5 @@ app/build/
 app/.idea/
 .github/
 
-# documents / non-source
 Documents/
 
