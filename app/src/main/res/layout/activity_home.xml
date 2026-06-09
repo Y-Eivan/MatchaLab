@@ -30,6 +30,7 @@
                 android:layout_height="44dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_menu"
+                app:tint="@color/primary"
                 android:contentDescription="@string/cd_open_menu" />
 
             <TextView
@@ -48,6 +49,7 @@
                 android:layout_height="44dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_bell"
+                app:tint="@color/primary"
                 android:contentDescription="@string/cd_notifications" />
 
         </LinearLayout>
@@ -224,8 +226,7 @@
 
                                 <FrameLayout
                                     android:layout_width="38dp"
-                                    android:layout_height="38dp"
-                                    android:background="@drawable/bg_circle_outline">
+                                    android:layout_height="38dp">
 
                                     <ImageView
                                         android:layout_width="20dp"
@@ -268,8 +269,7 @@
 
                                 <FrameLayout
                                     android:layout_width="38dp"
-                                    android:layout_height="38dp"
-                                    android:background="@drawable/bg_circle_outline">
+                                    android:layout_height="38dp">
 
                                     <ImageView
                                         android:layout_width="20dp"
@@ -311,9 +311,7 @@
 
                                 <FrameLayout
                                     android:layout_width="38dp"
-                                    android:layout_height="38dp"
-                                    android:background="@drawable/bg_circle_outline">
-
+                                    android:layout_height="38dp">
 
                                     <ImageView
                                         android:layout_width="20dp"
@@ -496,7 +494,7 @@
         android:background="@color/background"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_home"
-        app:itemIconTint="@color/text_primary"
+        app:itemIconTint="@color/primary"
         app:itemTextColor="@color/text_primary" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

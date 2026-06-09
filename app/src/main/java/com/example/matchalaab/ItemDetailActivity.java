@@ -152,18 +152,15 @@ public class ItemDetailActivity extends AppCompatActivity {
                 btnOrder.setBackgroundTintList(ColorStateList.valueOf(
                         getResources().getColor(R.color.primary, null)));
             }
-            return true;
+            // return false so the event propagates to the click listener
+            return false;
         });
 
         btnOrder.setOnClickListener(v -> {
             if (quantity <= 0) {
-                //highlight stepper field then show error dialog
+                //highlight stepper field and show inline error
                 quantityStepper.setBackgroundResource(R.drawable.bg_stepper_field_error);
-                new MaterialAlertDialogBuilder(this)
-                        .setTitle(getString(R.string.dialog_qty_title))
-                        .setMessage(getString(R.string.dialog_qty_msg))
-                        .setPositiveButton(android.R.string.ok, null)
-                        .show();
+                tvQtyError.setVisibility(View.VISIBLE);
                 return;
             }
 

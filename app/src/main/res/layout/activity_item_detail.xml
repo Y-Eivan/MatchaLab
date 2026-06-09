@@ -262,7 +262,7 @@
         android:layout_margin="16dp"
         android:background="@drawable/bg_circle_white"
         android:src="@drawable/ic_chevron_left"
-        android:tint="@color/text_primary"
+        android:tint="@color/primary"
         android:contentDescription="@string/cd_back" />
 
     <!--bell button-->
@@ -274,7 +274,7 @@
         android:layout_gravity="top|end"
         android:background="@drawable/bg_circle_white"
         android:src="@drawable/ic_bell"
-        android:tint="@color/text_primary"
+        android:tint="@color/primary"
         android:contentDescription="@string/cd_notifications" />
 
     <!--order button-->

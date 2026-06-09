@@ -68,7 +68,7 @@
                     android:layout_width="13dp"
                     android:layout_height="13dp"
                     android:src="@drawable/ic_pin"
-                    android:tint="@color/text_secondary"
+                    android:tint="@color/accent"
                     android:contentDescription="@null" />
 
                 <TextView
@@ -95,7 +95,7 @@
                     android:layout_width="13dp"
                     android:layout_height="13dp"
                     android:src="@drawable/ic_clock"
-                    android:tint="@color/text_secondary"
+                    android:tint="@color/accent"
                     android:contentDescription="@null" />
 
                 <TextView
