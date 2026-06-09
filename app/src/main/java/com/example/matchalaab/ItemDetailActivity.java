@@ -152,7 +152,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                 btnOrder.setBackgroundTintList(ColorStateList.valueOf(
                         getResources().getColor(R.color.primary, null)));
             }
-            // return false so the event propagates to the click listener
+            //return false so the click listener can still get the event
             return false;
         });
 
